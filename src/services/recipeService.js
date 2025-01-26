@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Set the base URL for the API
-const API_URL = 'http://localhost:3000/api/recipe'; // Update this with your backend URL if different
+const API_URL = 'https://recipies-be.onrender.com'; // Update this with your backend URL if different
 
 // Fetch all recipes
 const getAllRecipes = async () => {
