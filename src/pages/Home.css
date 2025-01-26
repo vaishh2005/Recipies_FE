@@ -1,0 +1,28 @@
+.home {
+  background-color: #094634;
+  /* Add other default styles */
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .home {
+    background-color: #06302c; /* Darker shade for mobile */
+    /* Adjust other styles as needed */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .home {
+    background-color: #0b4e38; /* Slightly lighter shade for tablets */
+    /* Adjust other styles as needed */
+  }
+}
+
+/* For large screens (desktops and larger) */
+@media (min-width: 1025px) {
+  .home {
+    background-color: #094634; /* Original background color for desktops */
+    /* Add any desktop-specific adjustments */
+  }
+}

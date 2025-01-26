@@ -1,0 +1,101 @@
+.add-recipe-component {
+  min-height: 100vh;
+}
+
+.add-recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 400px;
+  min-height: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+}
+
+.add-recipe-form input,
+.add-recipe-form textarea,
+.add-recipe-form select {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-recipe-form button {
+  margin-left: 40%;
+  margin-top: 10%;
+  width: max-content;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-recipe-form button:hover {
+  background: #0056b3;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .add-recipe-container {
+    max-width: 100%; /* Full-width container on mobile */
+    margin: 20px; /* Reduced margin */
+    padding: 15px; /* Reduced padding */
+  }
+
+  .add-recipe-form input,
+  .add-recipe-form textarea,
+  .add-recipe-form select {
+    width: 100%; /* Full width for inputs on mobile */
+    padding: 8px; /* Adjust padding */
+  }
+
+  .add-recipe-form button {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%; /* Full-width button on mobile */
+    padding: 12px; /* Adjust padding */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .add-recipe-container {
+    max-width: 90%; /* Slightly smaller width for tablets */
+  }
+
+  .add-recipe-form input,
+  .add-recipe-form textarea,
+  .add-recipe-form select {
+    width: 100%; /* Full-width inputs for tablets */
+  }
+
+  .add-recipe-form button {
+    margin-left: 0;
+    margin-top: 10%;
+    width: 100%; /* Full-width button for tablets */
+  }
+}
+
+/* For large screens (desktops and larger) */
+@media (min-width: 1025px) {
+  .add-recipe-container {
+    max-width: 400px; /* Keep max-width for large screens */
+    margin: 50px auto; /* Keep large margins for desktops */
+  }
+
+  .add-recipe-form button {
+    margin-left: 40%;
+    margin-top: 10%;
+    width: max-content; /* Default width for large screens */
+  }
+}
+
+  

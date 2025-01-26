@@ -1,0 +1,87 @@
+.add-recipe-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-recipe-form input,
+.add-recipe-form textarea,
+.add-recipe-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-recipe-form button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-recipe-form button:hover {
+  background: #0056b3;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .add-recipe-container {
+    max-width: 100%; /* Full-width container on mobile */
+    padding: 15px; /* Reduced padding */
+    margin: 10px; /* Reduced margin */
+  }
+
+  .add-recipe-form input,
+  .add-recipe-form textarea,
+  .add-recipe-form select {
+    padding: 8px; /* Adjust padding for smaller screens */
+  }
+
+  .add-recipe-form button {
+    padding: 12px; /* Adjust button padding */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .add-recipe-container {
+    max-width: 90%; /* Slightly smaller container for tablets */
+  }
+
+  .add-recipe-form input,
+  .add-recipe-form textarea,
+  .add-recipe-form select {
+    padding: 9px; /* Adjust padding for tablets */
+  }
+
+  .add-recipe-form button {
+    padding: 12px; /* Adjust button padding for tablets */
+  }
+}
+
+/* For large screens (desktops and larger) */
+@media (min-width: 1025px) {
+  .add-recipe-container {
+    max-width: 600px; /* Keep original size for larger screens */
+    padding: 20px; /* Default padding */
+    margin: 20px auto; /* Keep margin centered */
+  }
+
+  .add-recipe-form input,
+  .add-recipe-form textarea,
+  .add-recipe-form select {
+    padding: 10px; /* Default padding for larger screens */
+  }
+
+  .add-recipe-form button {
+    padding: 10px; /* Default button padding */
+  }
+}

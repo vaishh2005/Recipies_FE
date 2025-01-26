@@ -1,0 +1,48 @@
+.recipe-details-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.recipe-details-container img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .recipe-details-container {
+    padding: 10px; /* Reduced padding on mobile */
+    max-width: 100%; /* Full-width container on mobile */
+  }
+
+  .recipe-details-container img {
+    max-height: 300px; /* Reduced image size on mobile */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .recipe-details-container {
+    padding: 15px; /* Slightly reduced padding for tablets */
+    max-width: 90%; /* Slightly smaller container for tablets */
+  }
+
+  .recipe-details-container img {
+    max-height: 350px; /* Adjust image size for tablets */
+  }
+}
+
+/* For large screens (desktops and larger) */
+@media (min-width: 1025px) {
+  .recipe-details-container {
+    padding: 20px; /* Default padding for desktops */
+    max-width: 800px; /* Default container width */
+  }
+
+  .recipe-details-container img {
+    max-height: 400px; /* Default image size for desktops */
+  }
+}

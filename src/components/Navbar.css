@@ -1,0 +1,132 @@
+/* Navbar.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:     #FF7518;
+    color: white; /* Primary color */
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .navbar-brand {
+    display: flex;
+    align-items: center; /* Align logo and text vertically */
+    gap: 10px; /* Space between logo and text */
+  }
+  .navbar-brand a {
+    color: #ffffff; /* White text */
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+ 
+  .navbar-logo {
+    height: 60px; /* Increase the height */
+    width: 60px;  /* Set width to make it square */
+    border-radius: 50%;
+    /* Make it circular */
+    object-fit: cover;
+    border: 3px solid white;
+  
+}
+
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links li a {
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-links li a:hover {
+    color: #ffe0b2; /* Light orange hover effect */
+  }
+  
+  
+  
+ 
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .navbar-links {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+  }
+  .profile-menu-container {
+    position: relative; /* Position the profile menu container for absolute positioning */
+  }
+  
+  .profile-button {
+    background-color: #f57c00;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .profile-button:hover {
+    background-color: #ff7043;
+  }
+  
+  .profile-menu {
+    position: absolute;
+    top: 100%; /* Position the menu below the profile button */
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    width: 200px;
+    z-index: 1;
+  }
+  
+  .profile-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .profile-menu li {
+    padding: 12px;
+  }
+  
+  .profile-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+  
+  .profile-menu li a:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .logout-button {
+    width: 100%;
+    background-color: #f57c00;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .logout-button:hover {
+    background-color: #ff7043;
+  }
+  
