@@ -37,8 +37,6 @@ const UpdateRecipe = () => {
   useEffect(() => {
     // Fetch the recipe data when the component mounts
     const fetchRecipe = async () => {
-      console.log(recipeId);
-
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
@@ -84,8 +82,6 @@ const UpdateRecipe = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-
     try {
       const formDataImage = new FormData();
       formDataImage.append("file", formData.image); // Add the image file
@@ -97,8 +93,6 @@ const UpdateRecipe = () => {
       );
 
       const imageUrl = cloudinaryResponse.data.secure_url;
-      console.log(imageUrl);
-
       const token = localStorage.getItem("token");
       const updatedRecipeData = {
         title: formData.title,

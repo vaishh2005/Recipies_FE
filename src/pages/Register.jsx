@@ -30,13 +30,14 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post(`${BASE_URL}/api/auth/register`, formData);
-      console.log(response);
-
+      if(response.status === 200 || 201){
       // Show success message and navigate to another page if needed
-      setMessage("Registration successful! Redirecting...");
-      setType("success");
-      setOpen(true);
-      setTimeout(() => navigate("/login"), 3000); // Redirect after 3 seconds
+        setMessage("Registration successful! Redirecting...");
+        setType("success");
+        setOpen(true);
+        setTimeout(() => navigate("/login"), 3000); // Redirect after 3 seconds
+      }
+      
     } catch (error) {
       console.error("Error:", error);
 

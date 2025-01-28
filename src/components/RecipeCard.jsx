@@ -25,7 +25,6 @@ const RecipeCard = ({ recipe, type }) => {
   };
 
   const handleDeleteRecipe = async () => {
-    console.log("Deleting recipe with ID:", recipe._id);
     // Ask for confirmation before proceeding
     const confirmation = window.confirm(
       "Are you sure you want to delete this recipe?"

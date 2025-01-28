@@ -15,8 +15,6 @@ const ChangePassword = () => {
 
   const chnagePassword = async (password, newpassword) => {
     try {
-      console.log(newPassword);
-      
       const authToken = localStorage.getItem('token');
       const usrname = localStorage.getItem('usrname'); // Retrieve the token from localStorage (or your preferred storage)
        // Retrieve the token from localStorage (or your preferred storage)
@@ -33,8 +31,6 @@ const ChangePassword = () => {
           },
         }
       );
-    
-      console.log("Password changed successfully:", response.data);
       navigate("/")
     } catch (error) {
       console.error("Change password failed:", error.message);
@@ -44,8 +40,6 @@ const ChangePassword = () => {
   };
   const handleChangePassword = async () => {
     // Validation
-    console.log(newPassword);
-    
     if (newPassword.length < 6) {
       setSnackbarMessage('New password must be at least 6 characters long.');
       setSnackbarType('error');
@@ -61,8 +55,6 @@ const ChangePassword = () => {
     }
 
     try {
-      console.log("dss");
-      
       // Call the ChangePassword function from AuthContext
       await chnagePassword(oldPassword, newPassword);
       setSnackbarMessage('Password changed successfully!');
