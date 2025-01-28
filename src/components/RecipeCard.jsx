@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import MessageService from "../services/MessageService";
-
+import { BASE_URL } from '../config/condif';
 import "./RecipeCard.css"; // Make sure to import the CSS file
 
 const RecipeCard = ({ recipe, type }) => {
@@ -26,7 +26,6 @@ const RecipeCard = ({ recipe, type }) => {
 
   const handleDeleteRecipe = async () => {
     console.log("Deleting recipe with ID:", recipe._id);
-
     // Ask for confirmation before proceeding
     const confirmation = window.confirm(
       "Are you sure you want to delete this recipe?"
@@ -44,7 +43,7 @@ const RecipeCard = ({ recipe, type }) => {
 
       // Send DELETE request
       const response = await axios.delete(
-        `http://localhost:3000/api/recipe/delete/${recipe._id}`,
+        `${BASE_URL}/api/recipe/delete/${recipe._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -61,11 +60,6 @@ const RecipeCard = ({ recipe, type }) => {
       setTimeout(() => {
         navigate("/");
       }, 1000);
-
-      // Trigger onDelete callback if defined
-      if (onDelete) {
-        onDelete(recipe._id); // Remove recipe from the list
-      }
     } catch (error) {
       // Check if error response exists and has a meaningful message
       const errorMessage =
@@ -116,6 +110,7 @@ const RecipeCard = ({ recipe, type }) => {
     </div>
   );
 };
+
 const RecipeList = ({ recipes, type }) => {
   const [recipeList, setRecipeList] = useState(recipes);
 

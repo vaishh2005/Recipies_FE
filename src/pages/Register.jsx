@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom";
 import "./Register.css";
+import MessageService from '../services/MessageService'; // Import the MessageService component
+import { BASE_URL } from '../config/condif';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -9,20 +11,43 @@ const Register = () => {
     email: "",
     password: "",
   });
-  const navigate = useNavigate(); // Initialize useNavigate
+
+  const [message, setMessage] = useState(""); // State for the message content
+  const [type, setType] = useState(""); // State for the message type ('success' or 'error')
+  const [open, setOpen] = useState(false); // State for Snackbar visibility
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleClose = () => {
+    setOpen(false); // Close the Snackbar
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/auth/register", formData);
-      alert("Registration successful! Please login.");
-      navigate("/login"); // Redirect to login page after successful registration
+      const response = await axios.post(`${BASE_URL}/api/auth/register`, formData);
+      console.log(response);
+
+      // Show success message and navigate to another page if needed
+      setMessage("Registration successful! Redirecting...");
+      setType("success");
+      setOpen(true);
+      setTimeout(() => navigate("/login"), 3000); // Redirect after 3 seconds
     } catch (error) {
-      alert("Registration failed. Please try again.");
+      console.error("Error:", error);
+
+      // Show error message
+      if (error.response) {
+        setMessage(error.response.data.message || "Registration failed");
+      } else {
+        setMessage("Registration failed. Please try again.");
+      }
+      setType("error");
+      setOpen(true);
     }
   };
 
@@ -58,8 +83,17 @@ const Register = () => {
           <button type="submit">Register</button>
         </form>
       </div>
+
+      {/* Integrate MessageService */}
+      <MessageService
+        message={message}
+        type={type}
+        open={open}
+        handleClose={handleClose}
+      />
     </div>
   );
 };
 
 export default Register;
+

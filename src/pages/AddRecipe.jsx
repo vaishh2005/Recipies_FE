@@ -3,6 +3,7 @@ import axios from "axios";
 import "./AddRecipe.css";
 import MessageService from "../services/MessageService";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from '../config/condif';// Correct import
 
 const AddRecipe = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const AddRecipe = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  
+
   const handleFileChange = (e) => {
     const file = e.target.files[0]; // Get the selected file
     if (file) {
@@ -31,7 +32,7 @@ const AddRecipe = () => {
       }));
     }
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -59,8 +60,16 @@ const AddRecipe = () => {
       const updatedFormData = { ...formData, image: imageUrl };
       const token = localStorage.getItem("token"); // Get the user's token from localStorage
 
+      if (!token) {
+        setMessage("You must be logged in to add a recipe.");
+        setMessageType("error");
+        setOpen(true);
+        return;
+      }
+
+      // Send POST request with token in headers
       const recipeResponse = await axios.post(
-        "http://localhost:3000/api/recipe/adrecipe",
+        `${BASE_URL}/api/recipe/adrecipe`,
         updatedFormData,
         {
           headers: {
@@ -72,7 +81,7 @@ const AddRecipe = () => {
       setMessage("Recipe added successfully!"); // Set success message
       setMessageType("success");
       setOpen(true);
-      navigate("/"); 
+      navigate("/");
 
       setFormData({
         title: "",
@@ -84,9 +93,18 @@ const AddRecipe = () => {
       });
     } catch (error) {
       console.error("Error adding recipe:", error.response?.data || error.message);
-      setMessage("Failed to add recipe."); // Set error message
-      setMessageType("error");
-      setOpen(true);
+
+      // If unauthorized (401), handle it
+      if (error.response && error.response.status === 401) {
+        setMessage("Unauthorized! Please log in to continue.");
+        setMessageType("error");
+        setOpen(true);
+        navigate("/"); // Redirect to login page
+      } else {
+        setMessage("Failed to add recipe."); // Set generic error message
+        setMessageType("error");
+        setOpen(true);
+      }
     }
   };
 
@@ -155,4 +173,5 @@ const AddRecipe = () => {
 };
 
 export default AddRecipe;
+
 

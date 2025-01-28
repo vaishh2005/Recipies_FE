@@ -17,18 +17,17 @@ const Login = () => {
       await login(email, password);
       setMessage('Login successful!');
       setMessageType('success');
-      setOpen(true); // Show message
     } catch (error) {
-      setMessage('Login failed. Please check your credentials.');
+      setMessage(error.response?.data?.message || 'Login failed. Please try again.');
       setMessageType('error');
-      setOpen(true); // Show error message
+    } finally {
+      setOpen(true); // Show snackbar regardless of success or failure
+      setTimeout(() => {
+        setOpen(false); // Close message after 5 seconds
+      }, 5000);
     }
-
-    // Close the message after 5 seconds
-    setTimeout(() => {
-      setOpen(false);
-    }, 5000);
   };
+  
 
   return (
    <div className='login-component'>

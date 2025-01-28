@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './RecipeDetails.css';
+import { BASE_URL } from '../config/condif';
 
 const RecipeDetails = () => {
   const { id } = useParams();  // Get the 'id' from the URL
@@ -12,7 +13,7 @@ const RecipeDetails = () => {
     const fetchRecipe = async () => {
       try {
         // Make a GET request to fetch the recipe by 'id'
-        const response = await axios.get(`http://localhost:3000/api/recipe/${id}`);
+        const response = await axios.get(`${BASE_URL}/api/recipe/${id}`);
         setRecipe(response.data);  // Set the recipe data to state
       } catch (error) {
         console.error('Error fetching recipe details:', error.message);

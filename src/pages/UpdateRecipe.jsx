@@ -15,6 +15,7 @@ import { Alert } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import MessageService from "../services/MessageService";
+import { BASE_URL } from '../config/condif';
 
 const UpdateRecipe = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,7 @@ const UpdateRecipe = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `http://localhost:3000/api/recipe/${recipeId.id}`,
+          `${BASE_URL}/api/recipe/${recipeId.id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -109,7 +110,7 @@ const UpdateRecipe = () => {
       };
 
       const response = await axios.put(
-        `http://localhost:3000/api/recipe/${recipeId.id}`,
+        `${BASE_URL}/api/recipe/${recipeId.id}`,
         updatedRecipeData,
         {
           headers: {
